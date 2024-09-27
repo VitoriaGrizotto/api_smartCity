@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'app_smart',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
+    'django_filters',
+
 ]
 
 REST_FRAMEWORK ={
