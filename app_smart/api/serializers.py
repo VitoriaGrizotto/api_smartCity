@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from app_smart.models import Sensor
+from app_smart.models import Sensor, TemperaturaData
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -19,3 +19,8 @@ class SensorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensor
         fields = '__all__' # Isso serializa todos os campos do modelo Sensor
+
+class TemperaturaDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TemperaturaData
+        fields = '__all__'
