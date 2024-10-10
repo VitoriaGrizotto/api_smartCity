@@ -16,5 +16,6 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
-    path('api/upload/', upload_csv_view, name='upload_csv'),  # Nova URL para upload de CSV
+    path('api/upload/', upload_csv_view, name='upload_csv'),
+    # path('api/upload/temperatura/', TemperaturaDataViewSet.as_view({'post': 'upload'}), name='upload_temperatura'),
 ]

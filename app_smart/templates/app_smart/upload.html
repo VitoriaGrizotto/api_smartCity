@@ -12,5 +12,11 @@
         {{ form.as_p }}
         <button type="submit">Enviar</button>
     </form>
+    <h1>Upload da temperatura</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
