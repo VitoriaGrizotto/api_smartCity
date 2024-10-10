@@ -6,17 +6,39 @@
     <title>Upload de Arquivo CSV</title>
 </head>
 <body>
-    <h1>Upload de Arquivo CSV</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" action="/process-upload/">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
-    </form>
-    <h1>Upload da temperatura</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
+        <h1>CSV UPLOAD</h1>
+       
+        <div class="upload-section">
+            <label for="sensor_csv">Upload Sensor CSV:</label>
+            <input type="file" name="sensor_csv" id="sensor_csv" >
+            <button type="submit" name="upload_type" value="sensor">Upload Sensor</button>
+        </div>
+       
+        <div class="upload-section">
+            <label for="luminosidade_csv">Upload Luminosidade CSV:</label>
+            <input type="file" name="luminosidade_csv" id="luminosidade_csv" >
+            <button type="submit" name="upload_type" value="luminosidade">Upload Luminosidade</button>
+        </div>
+       
+        <div class="upload-section">
+            <label for="temperatura_csv">Upload Temperatura CSV:</label>
+            <input type="file" name="temperatura_csv" id="temperatura_csv" >
+            <button type="submit" name="upload_type" value="temperatura">Upload Temperatura</button>
+        </div>
+ 
+        <div class="upload-section">
+            <label for="umidade_csv">Upload Umidade CSV:</label>
+            <input type="file" name="umidade_csv" id="umidade_csv" >
+            <button type="submit" name="upload_type" value="umidade">Upload Umidade</button>
+        </div>
+ 
+        <div class="upload-section">
+            <label for="contador_csv">Upload Contador CSV:</label>
+            <input type="file" name="contador_csv" id="contador_csv" >
+            <button type="submit" name="upload_type" value="contador">Upload Contador</button>
+        </div>
     </form>
 </body>
 </html>

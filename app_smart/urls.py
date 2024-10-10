@@ -1,10 +1,14 @@
 from django.urls import path, include
-from . import views
+from. import views
+from app_smart.api.viewsets import CreateUser, SensorViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from app_smart.api.viewsets import CreateUser, SensorViewSet, TemperaturaDataViewSet
 from rest_framework.routers import DefaultRouter
-from app_smart.api.filters import SensorFilterView
-from app_smart.views import abre_index, upload_csv_view
+from app_smart.views import CSVUploadView, process_csv_upload
+from app_smart.api.viewsets import(
+    CreateUser,
+    SensorViewSet,
+    TemperaturaDataViewSet,
+)
 
 router = DefaultRouter()
 router.register(r'sensores', SensorViewSet)
@@ -16,6 +20,6 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
-    path('api/upload/', upload_csv_view, name='upload_csv'),
+    path('process-upload/', process_csv_upload, name='process-upload'),
     # path('api/upload/temperatura/', TemperaturaDataViewSet.as_view({'post': 'upload'}), name='upload_temperatura'),
 ]
